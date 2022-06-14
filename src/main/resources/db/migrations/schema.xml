@@ -1,0 +1,38 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Iurii Moiseev" id="Create-table-messages">
+        <preConditions>
+            <not>
+                <tableExists tableName="MESSAGES"/>
+            </not>
+        </preConditions>
+        <createTable tableName="MESSAGES">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="TEXT" type="VARCHAR(2048)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATION_DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LINK" type="VARCHAR(2048)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="LINK_TITLE" type="VARCHAR(2048)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="LINK_DESCRIPTION" type="VARCHAR(2048)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="LINK_COVER" type="VARCHAR(2048)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
